@@ -1,5 +1,5 @@
 const App = () => (
-  <div className="flex w-full h-screen items-center justify-center">
+  <div className="App">
     <h1 className="text-4xl">Hello world!</h1>
   </div>
 );
