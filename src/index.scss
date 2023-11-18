@@ -2,6 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
-  @apply flex w-full h-screen items-center justify-center;
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Markazi+Text:wght@400;500;600;700&display=swap");
+
+body {
+  @apply font-karla;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-markazi;
+}
+
+h1 {
+  @apply text-display-xl/display-xl md:text-display-2xl/display-2xl;
+}
+h2 {
+  @apply text-display-lg/display-lg md:text-display-xl/display-xl;
+}
+h3 {
+  @apply text-display-md/display-md md:text-display-lg/display-lg;
+}
+h4 {
+  @apply text-display-sm/display-sm md:text-display-md/display-md;
+}
+h5 {
+  @apply text-display-xs/display-xs md:text-display-sm/display-sm;
+}
+h6 {
+  @apply text-display-xs/display-xs md:text-display-sm/display-sm;
+}
+p {
+  @apply max-w-[45rem];
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1024px] mx-auto;
+  }
+  .box {
+    @apply pt-6xl pb-7xl md:pt-7xl md:pb-9xl;
+  }
+  .content {
+    @apply px-4 md:px-8;
+  }
 }

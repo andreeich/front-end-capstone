@@ -1,7 +1,13 @@
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+
 const App = () => (
-  <div className="App">
-    <h1 className="text-4xl">Hello world!</h1>
-  </div>
+  <>
+    <Header />
+    <Main />
+    <Footer />
+  </>
 );
 
 export default App;
