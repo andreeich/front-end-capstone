@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import Button from "./Button";
 
 function Card({ image, title, price, description }) {
@@ -19,5 +21,11 @@ function Card({ image, title, price, description }) {
     </article>
   );
 }
+Card.propTypes = {
+  image: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.number,
+};
 
 export default Card;

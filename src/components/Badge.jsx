@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Badge({ children, color = "gray", size = "sm" }) {
   const styles = {
     base: `inline-flex items-center justify-center whitespace-nowrap transition-all rounded-2xl border font-medium`,
@@ -22,5 +24,10 @@ function Badge({ children, color = "gray", size = "sm" }) {
     </div>
   );
 }
+Badge.propTypes = {
+  children: PropTypes.string,
+  color: PropTypes.string,
+  size: PropTypes.string,
+};
 
 export default Badge;

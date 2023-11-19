@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Button({
   children = "Button",
   size = "lg",
@@ -44,5 +46,11 @@ function Button({
     </button>
   );
 }
+Button.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  color: PropTypes.string,
+  size: PropTypes.string,
+  type: PropTypes.string,
+};
 
 export default Button;

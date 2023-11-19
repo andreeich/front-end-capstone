@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 
+import PropTypes from "prop-types";
+
 function Review({ avatar, title, description, rating = 5 }) {
   const ratingRow = useMemo(() => {
     const ratingRow = [];
@@ -60,5 +62,11 @@ function Review({ avatar, title, description, rating = 5 }) {
     </article>
   );
 }
+Review.propTypes = {
+  avatar: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  rating: PropTypes.number,
+};
 
 export default Review;

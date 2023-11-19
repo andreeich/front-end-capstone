@@ -10,9 +10,9 @@ import avatar from "../assets/avatar.png";
 
 function Main() {
   return (
-    <main>
+    <main className="mt-[72px]">
       <section className="box bg-brand-500 text-base-white">
-        <section className="container grid items-center md:grid-cols-2 content gap-7xl">
+        <section className="container grid items-center sm:grid-cols-2 content gap-7xl">
           <section className="flex flex-col items-start gap-12">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
@@ -30,7 +30,7 @@ function Main() {
           </section>
           <section>
             <img
-              className="rounded-2xl aspect-square w-sm"
+              className="w-full rounded-2xl aspect-square"
               src={image1}
               alt=""
             />
@@ -43,23 +43,23 @@ function Main() {
             <h2>This weeks special!</h2>
             <Button>Online Menu</Button>
           </section>
-          <section className="grid lg:grid-cols-3 md:grid-cols-2 gap-6xl">
+          <section className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6xl">
             <Card
               image={image2}
               title="Greek salad"
-              price="12.99"
+              price={12.99}
               description="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
             />
             <Card
               image={image2}
               title="Bruchetta"
-              price="$5.99"
+              price={5.99}
               description="Our Bruchetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil."
             />
             <Card
               image={image2}
               title="Greek salad"
-              price="12.99"
+              price={12.99}
               description="The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons."
             />
           </section>
@@ -70,7 +70,7 @@ function Main() {
           <section className="flex items-center justify-center">
             <h3>Testimonials</h3>
           </section>
-          <section className="grid lg:grid-cols-3 md:grid-cols-2 gap-6xl">
+          <section className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6xl">
             <Review
               avatar={avatar}
               title="Onha"
@@ -104,7 +104,7 @@ function Main() {
               healthy and delicious dishes of all kinds.
             </p>
           </section>
-          <section>
+          <section className="max-md:max-w-md">
             <img className="rounded-2xl w-3/4" src={image3} alt="" />
             <img
               className="rounded-2xl w-3/4 relative -mt-[60%] left-1/4"

@@ -47,9 +47,11 @@ function Header() {
   }, [open]);
 
   return (
-    <header className={`relative z-50 bg-base-white`}>
+    <header
+      className={`fixed top-0 z-50 w-full bg-base-white/75 backdrop-blur-md`}
+    >
       <div className="container">
-        <div className="flex items-center justify-between gap-10 content bg-base-white h-[72px]">
+        <div className="flex items-center justify-between gap-10 content h-[72px]">
           <img src={logo} width="147.5" height="40" alt="" />
           <menu className="items-center justify-center hidden gap-8 lg:flex">
             <li>
