@@ -1,6 +1,6 @@
-import Button from "./Button";
-import Card from "./Card";
-import Review from "./Review";
+import Button from "../components/Button";
+import Card from "../components/Card";
+import Review from "../components/Review";
 
 import image1 from "../assets/image-1.png";
 import image2 from "../assets/image-2.png";
@@ -8,7 +8,7 @@ import image3 from "../assets/image-3.png";
 import image4 from "../assets/image-4.png";
 import avatar from "../assets/avatar.png";
 
-function Main() {
+function HomePage() {
   return (
     <main className="mt-[72px]">
       <section className="box bg-brand-500 text-base-white">
@@ -118,4 +118,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default HomePage;

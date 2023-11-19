@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "./Button";
 
@@ -46,6 +47,45 @@ function Header() {
     );
   }, [open]);
 
+  const navLinksData = [
+    {
+      id: 1,
+      name: "Home",
+      to: "/",
+    },
+    {
+      id: 2,
+      name: "About",
+      to: "/about",
+    },
+    {
+      id: 3,
+      name: "Menu",
+      to: "/",
+    },
+    {
+      id: 4,
+      name: "Reservation",
+      to: "/",
+    },
+    {
+      id: 5,
+      name: "Order online",
+      to: "/",
+    },
+  ];
+  const navLinks = navLinksData.map((link) => {
+    return (
+      <li key={link.id}>
+        <Link to={link.to}>
+          <Button size="lg" color="link" type="link">
+            {link.name}
+          </Button>
+        </Link>
+      </li>
+    );
+  });
+
   return (
     <header
       className={`fixed top-0 z-50 w-full bg-base-white/75 backdrop-blur-md`}
@@ -54,31 +94,7 @@ function Header() {
         <div className="flex items-center justify-between gap-10 content h-[72px]">
           <img src={logo} width="147.5" height="40" alt="" />
           <menu className="items-center justify-center hidden gap-8 lg:flex">
-            <li>
-              <Button size="lg" color="link" type="link">
-                Home
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" color="link" type="link">
-                About
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" color="link" type="link">
-                Menu
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" color="link" type="link">
-                Reservation
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" color="link" type="link">
-                Order online
-              </Button>
-            </li>
+            {navLinks}
           </menu>
           <div className="items-center justify-center hidden gap-3 lg:flex">
             <Button size="lg" color="tertiary">
@@ -101,33 +117,7 @@ function Header() {
               : "invisible -translate-y-full opacity-0"
           } flex lg:hidden flex-col absolute top-0 pt-[72px] left-0 w-full bg-base-white transition-all z-[-1]`}
         >
-          <menu className="flex flex-col gap-6 py-6 content">
-            <li>
-              <Button size="lg" type="link" color="link">
-                Home
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" type="link" color="link">
-                About
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" type="link" color="link">
-                Menu
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" type="link" color="link">
-                Reservation
-              </Button>
-            </li>
-            <li>
-              <Button size="lg" type="link" color="link">
-                Order online
-              </Button>
-            </li>
-          </menu>
+          <menu className="flex flex-col gap-6 py-6 content">{navLinks}</menu>
           <hr />
           <div className="flex flex-col gap-3 py-6 content">
             <Button size="lg" color="primary">
