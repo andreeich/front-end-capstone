@@ -56,7 +56,7 @@ function Header() {
     {
       id: 2,
       name: "About",
-      to: "/about",
+      to: "/",
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ function Header() {
     {
       id: 4,
       name: "Reservation",
-      to: "/",
+      to: "/reservation",
     },
     {
       id: 5,

@@ -5,6 +5,7 @@ function Button({
   size = "lg",
   color = "primary",
   type = "btn",
+  className = "",
 }) {
   const styles = {
     base: `inline-flex items-center justify-center whitespace-nowrap transition-all ${
@@ -40,7 +41,7 @@ function Button({
     <button
       className={`${styles.base} ${
         type == "link" ? styles.sizeLink[size] : styles.sizeBtn[size]
-      } ${styles.color[color]}`}
+      } ${styles.color[color]} ${className}`}
     >
       {children}
     </button>
@@ -51,6 +52,7 @@ Button.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
   type: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Button;
