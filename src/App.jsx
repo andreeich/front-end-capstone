@@ -25,20 +25,6 @@ const reducer = (state, action) => {
         times: action.times,
       };
     }
-    case "add_reservation": {
-      return {
-        ...state,
-        reservation: {
-          name: action.name,
-          date: action.date,
-          time: action.time,
-          occasion: action.occasion,
-          guests: action.guests,
-          call: action.call,
-          number: action.number,
-        },
-      };
-    }
     default: {
       throw Error("Unknown action.");
     }
@@ -50,13 +36,6 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, {
     date: "",
     times: [],
-    reservation: {
-      name: "",
-      date: "",
-      time: "",
-      occasion: "",
-      guests: 0,
-    },
   });
 
   const setData = (date) => {
@@ -77,16 +56,10 @@ const App = () => {
 
   const addReservation = (name, date, time, occasion, guests, call) => {
     const number = Math.floor(100000000 + Math.random() * 900000000);
-    dispatch({
-      type: "add_reservation",
-      name,
-      date,
-      time,
-      occasion,
-      guests: parseInt(guests),
-      call,
-      number,
-    });
+    localStorage.setItem(
+      "reservation",
+      JSON.stringify({ name, date, time, occasion, guests, number })
+    );
     updateTimes(date, time);
     navigate("/reservation-complete");
   };
@@ -112,19 +85,7 @@ const App = () => {
             />
           }
         />
-        <Route
-          path="/reservation-complete"
-          element={
-            <BookingCompletePage
-              name={state.reservation.name}
-              date={state.reservation.date}
-              time={state.reservation.time}
-              occasion={state.reservation.occasion}
-              guests={state.reservation.guests}
-              number={state.reservation.number}
-            />
-          }
-        />
+        <Route path="/reservation-complete" element={<BookingCompletePage />} />
       </Routes>
       <Footer />
     </>

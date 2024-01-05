@@ -1,15 +1,23 @@
-import PropTypes from "prop-types";
-// import Button from "../components/Button";
+import { useState, useEffect } from "react";
 
-// import image from "../assets/image-3.png";
-// import FormControl from "../components/FormControl";
+function BookingCompletePage() {
+  const [reservation, setReservation] = useState({
+    name: "",
+    data: "",
+    time: "",
+    occasion: "",
+    guests: "",
+    number: "",
+  });
 
-// import dateIcon from "../assets/calendar-date.svg";
-// import Checkbox from "../components/Checkbox";
-// import { useRef } from "react";
-// import { useEffect } from "react";
+  useEffect(() => {
+    try {
+      setReservation(JSON.parse(localStorage.getItem("reservation")));
+    } catch (e) {
+      console.error("Cannot load reservation info!");
+    }
+  }, []);
 
-function BookingCompletePage({ name, date, time, occasion, guests, number }) {
   return (
     <main>
       <section className="box">
@@ -17,7 +25,7 @@ function BookingCompletePage({ name, date, time, occasion, guests, number }) {
           <div className="space-y-5 max-w-p">
             <h2>Reserve a table</h2>
             <p>
-              Dear {name},
+              Dear {reservation.name},
               <br />
               Thank you for choosing Little Lemon! We&apos;re thrilled to
               confirm your reservation for an unforgettable dining experience.
@@ -27,20 +35,22 @@ function BookingCompletePage({ name, date, time, occasion, guests, number }) {
               Reservation Details:
             </p>
             <ul className="list-disc list-inside">
-              <li>Date: {date}</li>
-              <li>Time: {time}</li>
+              <li>Date: {reservation.date}</li>
+              <li>Time: {reservation.time}</li>
               <li>
-                Occasion: {occasion.charAt(0).toUpperCase() + occasion.slice(1)}
+                Occasion:{" "}
+                {reservation.occasion.charAt(0).toUpperCase() +
+                  reservation.occasion.slice(1)}
               </li>
-              <li>Number of Guests: {guests}</li>
+              <li>Number of Guests: {reservation.guests}</li>
             </ul>
             <p className="text-text-lg/text-lg md:text-text-xl/text-xl font-bold">
               Confirmation Number:
             </p>
             <ul className="list-disc list-inside">
               <li>
-                Your unique confirmation number is: #{number}. Please keep this
-                for reference.
+                Your unique confirmation number is: #{reservation.number}.
+                Please keep this for reference.
               </li>
             </ul>
           </div>
@@ -49,14 +59,5 @@ function BookingCompletePage({ name, date, time, occasion, guests, number }) {
     </main>
   );
 }
-
-BookingCompletePage.propTypes = {
-  name: PropTypes.string,
-  date: PropTypes.string,
-  time: PropTypes.string,
-  occasion: PropTypes.string,
-  guests: PropTypes.number,
-  number: PropTypes.number,
-};
 
 export default BookingCompletePage;
