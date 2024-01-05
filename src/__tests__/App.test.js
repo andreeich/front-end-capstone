@@ -4,6 +4,8 @@ import App from '../App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { fetchAPI, submitAPI } from '../services/BookingAPI';
 import BookingPage from '../pages/BookingPage';
+import BookingCompletePage from '../pages/BookingCompletePage';
+
 // test("initiate and update time options",() => {
 //   const customPath = '/reservation';
 //     Object.defineProperty(window, 'location', {
@@ -49,5 +51,26 @@ test("BookingPage date and times init", async () => {
   await waitFor(() => {
     expect(screen.getByTestId('time')).toHaveValue('10:00')
     expect(screen.getByTestId('date')).toHaveValue('2024-01-05')
+  })
+})
+
+test("BookingCompletePage init", async () => {
+  const reservation = {
+    name: 'Test',
+    date: '2024-01-05',
+    time: '15:00',
+    occasion: 'Birthday',
+    guests: 4,
+    number: 988096039.
+  }
+  localStorage.setItem('reservation', JSON.stringify(reservation))
+  render(<BookingCompletePage />)
+  await waitFor(() => {
+    expect(screen.getByTestId('name')).toHaveTextContent(reservation.name)
+    expect(screen.getByTestId('date')).toHaveTextContent(reservation.date)
+    expect(screen.getByTestId('time')).toHaveTextContent(reservation.time)
+    expect(screen.getByTestId('occasion')).toHaveTextContent(reservation.occasion)
+    expect(screen.getByTestId('guests')).toHaveTextContent(reservation.guests)
+    expect(screen.getByTestId('number')).toHaveTextContent(reservation.number)
   })
 })
