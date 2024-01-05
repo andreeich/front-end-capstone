@@ -8,13 +8,7 @@ import dateIcon from "../assets/calendar-date.svg";
 import Checkbox from "../components/Checkbox";
 import { useRef } from "react";
 
-function BookingPage({
-  date,
-  timeOptions,
-  updateTimes,
-  setDay,
-  addReservation,
-}) {
+function BookingPage({ date, times, setData, addReservation }) {
   // eslint-disable-next-line no-unused-vars
   const formRef = useRef();
   const nameRef = useRef();
@@ -27,8 +21,7 @@ function BookingPage({
   const occasionOptions = ["Birthday", "Anniversary"];
 
   const handleDateChange = (e) => {
-    const input = e.currentTarget;
-    setDay(input.value);
+    setData(e.currentTarget.value);
   };
 
   const handleSubmit = (e) => {
@@ -41,11 +34,10 @@ function BookingPage({
       guestsRef.current.value,
       callRef.current.checked
     );
-    updateTimes(timeRef.current.value);
   };
 
   return (
-    <main className="mt-[72px]">
+    <main>
       <section className="box">
         <section className="container grid items-center sm:grid-cols-2 content gap-7xl">
           <form className="space-y-12" onSubmit={handleSubmit}>
@@ -62,6 +54,7 @@ function BookingPage({
                   labelText="First name"
                   placeholderText="First name"
                   type="text"
+                  testId="name"
                   req={true}
                   inputRef={nameRef}
                 />
@@ -74,6 +67,7 @@ function BookingPage({
                     value={date}
                     icon={dateIcon}
                     req={true}
+                    testId="date"
                     onChange={handleDateChange}
                     inputRef={dateRef}
                   />
@@ -81,7 +75,8 @@ function BookingPage({
                     name="time"
                     labelText="Time"
                     type="select"
-                    options={timeOptions}
+                    testId="time"
+                    options={times}
                     req={true}
                     inputRef={timeRef}
                   />
@@ -94,6 +89,7 @@ function BookingPage({
                     type="select"
                     options={occasionOptions}
                     details="(Birthday, Anniversary)"
+                    testId="occasion"
                     req={true}
                     inputRef={occasionRef}
                   />
@@ -102,6 +98,7 @@ function BookingPage({
                     labelText="Number of guests"
                     placeholderText="Number of guests"
                     type="number"
+                    testId="guests"
                     req={true}
                     inputRef={guestsRef}
                   />
@@ -130,9 +127,8 @@ function BookingPage({
 
 BookingPage.propTypes = {
   date: PropTypes.string,
-  timeOptions: PropTypes.array,
-  updateTimes: PropTypes.func,
-  setDay: PropTypes.func,
+  times: PropTypes.array,
+  setData: PropTypes.func,
   addReservation: PropTypes.func,
 };
 

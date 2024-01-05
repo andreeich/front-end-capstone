@@ -10,7 +10,7 @@ import avatar from "../assets/avatar.png";
 
 function HomePage() {
   return (
-    <main className="mt-[72px]">
+    <main>
       <section className="box bg-brand-500 text-base-white">
         <section className="container grid items-center sm:grid-cols-2 content gap-7xl">
           <section className="flex flex-col items-start gap-12">

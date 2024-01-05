@@ -13,6 +13,7 @@ const FormControl = ({
   onChange,
   value = "",
   inputRef,
+  testId,
 }) => {
   return (
     <div className="w-full space-y-2">
@@ -30,6 +31,7 @@ const FormControl = ({
                 className="text-text-md/text-md text-gray-500 outline-none w-full h-full appearance-none bg-base-white"
                 onChange={onChange}
                 ref={inputRef}
+                data-testid={testId}
               >
                 {options?.map((option, key) => (
                   <option key={key} value={option.toLowerCase()}>
@@ -49,6 +51,7 @@ const FormControl = ({
               defaultValue={value}
               onChange={onChange}
               ref={inputRef}
+              data-testid={testId}
             />
           )}
         </div>

@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="text-gray-200 bg-gray-950">
       <section className="container flex flex-col md:flex-row content gap-6xl md:gap-7xl pt-6xl md:pt-7xl pb-6xl">
-        <section className="flex flex-col gap-3xl md:gap-8 w-xxs">
+        <section className="flex flex-col w-full max-w-xs gap-3xl md:gap-8">
           <img src={logo} width={147.5} height={40} alt="" />
           <p className="text-text-md/text-md">
             Welcome to our restaurant! We are happy to provide you with healthy
@@ -68,8 +68,8 @@ function Footer() {
                 </Button>
               </li>
               <li>
-                <Button type="link" color="link-dark">
-                  Menu
+                <Button type="link" color="link-dark" className="break-all">
+                  support@littlelemon.com
                 </Button>
               </li>
             </menu>

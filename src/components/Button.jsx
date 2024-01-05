@@ -8,10 +8,10 @@ function Button({
   className = "",
 }) {
   const styles = {
-    base: `inline-flex items-center justify-center whitespace-nowrap transition-all ${
+    base: `inline-flex items-center transition-all ${
       type == "link"
-        ? "disabled:text-gray-400"
-        : "rounded-md border shadow-xs focus:ring-2 disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400"
+        ? "disabled:text-gray-400 text-start"
+        : "justify-center whitespace-nowrap rounded-md border shadow-xs focus:ring-2 disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400"
     }`,
     sizeBtn: {
       sm: "gap-1 px-3 py-2 font-bold text-sm",
