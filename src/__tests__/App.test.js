@@ -78,11 +78,23 @@ test("BookingCompletePage init", async () => {
   })
 })
 
-test("BookingForm validation", async () => {
+test("BookingForm Required validation", async () => {
   render(<BookingForm date="2024-01-05" times={['10:00', '11:00']} />)
   await userEvent.type(screen.getByRole('textbox', {name: /first name/i}), 'John')
   await userEvent.click(screen.getByTestId('submit'));
   await waitFor(() => {
     expect(screen.getByText('Required')).toBeInTheDocument();
+  })
+})
+
+test("BookingForm Submit validation", async () => {
+  const handleSubmit = jest.fn()
+  render(<BookingForm onSubmit={handleSubmit}  date="2024-01-05" times={['10:00', '11:00']} />)
+  await userEvent.type(screen.getByTestId('name'), 'John')
+  await userEvent.type(screen.getByTestId('guests'), 3)
+  await userEvent.selectOptions(screen.getByTestId('time'), '10:00')
+  await userEvent.click(screen.getByTestId('submit'));
+  await waitFor(() => {
+    expect(handleSubmit).toHaveBeenCalled();
   })
 })

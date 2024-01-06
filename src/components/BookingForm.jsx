@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useEffect } from "react";
 
-function BookingForm({ date, times, setData, addReservation }) {
+function BookingForm({ date, times, setData, addReservation, onSubmit }) {
   const formik = useFormik({
     // enableReinitialize: true,
     initialValues: {
@@ -33,11 +33,13 @@ function BookingForm({ date, times, setData, addReservation }) {
         .required("Required"),
       call: Yup.bool(),
     }),
-    onSubmit: (values, { setSubmitting, resetForm }) => {
-      addReservation(values);
-      setSubmitting(false);
-      resetForm();
-    },
+    onSubmit: onSubmit
+      ? onSubmit
+      : (values, { setSubmitting, resetForm }) => {
+          addReservation(values);
+          setSubmitting(false);
+          resetForm();
+        },
   });
 
   const handleDateChange = (e) => {
