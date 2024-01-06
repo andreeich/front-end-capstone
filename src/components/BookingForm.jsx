@@ -33,8 +33,10 @@ function BookingForm({ date, times, setData, addReservation }) {
         .required("Required"),
       call: Yup.bool(),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { setSubmitting, resetForm }) => {
       addReservation(values);
+      setSubmitting(false);
+      resetForm();
     },
   });
 
@@ -111,7 +113,12 @@ function BookingForm({ date, times, setData, addReservation }) {
             fieldProps={{ ...formik.getFieldProps("call") }}
           />
         </div>
-        <Button type="submit" className="w-full" disabled={formik.isSubmitting}>
+        <Button
+          astype="submit"
+          testid="submit"
+          className="w-full"
+          disabled={formik.isSubmitting}
+        >
           Submit
         </Button>
       </div>

@@ -5,6 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { fetchAPI, submitAPI } from '../services/BookingAPI';
 import BookingPage from '../pages/BookingPage';
 import BookingCompletePage from '../pages/BookingCompletePage';
+import BookingForm from '../components/BookingForm';
+import userEvent from '@testing-library/user-event';
 
 // test("initiate and update time options",() => {
 //   const customPath = '/reservation';
@@ -48,6 +50,7 @@ test("submitAPI function", () => {
 
 test("BookingPage date and times init", async () => {
   render(<BookingPage date={'2024-01-05'} times={['10:00']}/>)
+  fireEvent.change(screen.getByTestId('time'), {target: {value: '10:00'}})
   await waitFor(() => {
     expect(screen.getByTestId('time')).toHaveValue('10:00')
     expect(screen.getByTestId('date')).toHaveValue('2024-01-05')
@@ -72,5 +75,14 @@ test("BookingCompletePage init", async () => {
     expect(screen.getByTestId('occasion')).toHaveTextContent(reservation.occasion)
     expect(screen.getByTestId('guests')).toHaveTextContent(reservation.guests)
     expect(screen.getByTestId('number')).toHaveTextContent(reservation.number)
+  })
+})
+
+test("BookingForm validation", async () => {
+  render(<BookingForm date="2024-01-05" times={['10:00', '11:00']} />)
+  await userEvent.type(screen.getByRole('textbox', {name: /first name/i}), 'John')
+  await userEvent.click(screen.getByTestId('submit'));
+  await waitFor(() => {
+    expect(screen.getByText('Required')).toBeInTheDocument();
   })
 })

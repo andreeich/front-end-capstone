@@ -6,6 +6,9 @@ function Button({
   color = "primary",
   type = "btn",
   className = "",
+  testid,
+  astype = "button",
+  disabled,
 }) {
   const styles = {
     base: `inline-flex items-center transition-all ${
@@ -42,6 +45,9 @@ function Button({
       className={`${styles.base} ${
         type == "link" ? styles.sizeLink[size] : styles.sizeBtn[size]
       } ${styles.color[color]} ${className}`}
+      type={astype}
+      disabled={disabled}
+      data-testid={testid}
     >
       {children}
     </button>
