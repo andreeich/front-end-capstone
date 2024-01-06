@@ -54,13 +54,10 @@ const App = () => {
     });
   };
 
-  const addReservation = (name, date, time, occasion, guests, call) => {
+  const addReservation = (data) => {
     const number = Math.floor(100000000 + Math.random() * 900000000);
-    localStorage.setItem(
-      "reservation",
-      JSON.stringify({ name, date, time, occasion, guests, number })
-    );
-    updateTimes(date, time);
+    localStorage.setItem("reservation", JSON.stringify({ ...data, number }));
+    updateTimes(data.date, data.time);
     navigate("/reservation-complete");
   };
 
@@ -80,7 +77,6 @@ const App = () => {
               date={state.date}
               times={state.times}
               setData={setData}
-              updateTimes={updateTimes}
               addReservation={addReservation}
             />
           }

@@ -12,6 +12,10 @@ function Header() {
     setOpen(!open);
   };
 
+  const closeOpen = () => {
+    setOpen(false);
+  };
+
   const burgerIcon = useMemo(() => {
     return open ? (
       <svg
@@ -77,7 +81,7 @@ function Header() {
   const navLinks = navLinksData.map((link) => {
     return (
       <li key={link.id}>
-        <Link to={link.to}>
+        <Link to={link.to} onClick={closeOpen}>
           <Button size="lg" color="link" type="link">
             {link.name}
           </Button>
@@ -92,7 +96,9 @@ function Header() {
     >
       <div className="container">
         <div className="flex items-center justify-between gap-10 content h-[72px]">
-          <img src={logo} width="147.5" height="40" alt="" />
+          <Link to={"/"} onClick={closeOpen}>
+            <img src={logo} width="147.5" height="40" alt="" />
+          </Link>
           <menu className="items-center justify-center hidden gap-8 lg:flex">
             {navLinks}
           </menu>

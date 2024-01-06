@@ -1,22 +1,11 @@
 import PropTypes from "prop-types";
 import check from "../assets/check.svg";
 
-const Checkbox = ({
-  name = "check",
-  text = "check",
-  req = false,
-  inputRef,
-}) => {
+const Checkbox = ({ name = "check", text = "check", fieldProps }) => {
   return (
     <label className="flex items-center gap-3 text-text-md/text-md text-gray-600">
       <span className="checkbox">
-        <input
-          type="checkbox"
-          name={name}
-          id={name}
-          required={req}
-          ref={inputRef}
-        />
+        <input type="checkbox" name={name} id={name} {...fieldProps} />
         <img src={check} alt="icon" />
       </span>{" "}
       {text}
