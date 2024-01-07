@@ -29,7 +29,7 @@ const FormControl = (props) => {
             <img
               src={icon}
               alt="icon"
-              className="pl-[0.875rem]"
+              className="pl-[0.875rem] py-[0.625rem]"
               aria-label={name}
             />
           )}

@@ -9,6 +9,7 @@ function Button({
   testid,
   astype = "button",
   disabled,
+  ariaLabel,
 }) {
   const styles = {
     base: `inline-flex items-center transition-all ${
@@ -48,6 +49,7 @@ function Button({
       type={astype}
       disabled={disabled}
       data-testid={testid}
+      aria-label={ariaLabel}
     >
       {children}
     </button>

@@ -8,9 +8,14 @@ import image3 from "../assets/image-3.png";
 import image4 from "../assets/image-4.png";
 import avatar from "../assets/avatar.png";
 
+import { Helmet } from "react-helmet";
+
 function HomePage() {
   return (
     <main>
+      <Helmet>
+        <title>Little Lemon</title>
+      </Helmet>
       <section className="box bg-brand-500 text-base-white">
         <section className="container grid items-center sm:grid-cols-2 content gap-7xl">
           <section className="flex flex-col items-start gap-12">

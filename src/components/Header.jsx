@@ -111,7 +111,7 @@ function Header() {
             </Button>
           </div>
           <div className="lg:hidden" onClick={handleOpen}>
-            <Button type="link" color="link" aria-label="Burger menu">
+            <Button type="link" color="link" ariaLabel="Burger menu">
               {burgerIcon}
             </Button>
           </div>

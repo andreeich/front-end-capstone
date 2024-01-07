@@ -79,7 +79,7 @@ function Footer() {
       <section className="container flex flex-col justify-between md:items-center md:flex-row py-5xl md:py-6xl content gap-3xl">
         <menu className="flex items-center gap-3xl md:order-last">
           <li>
-            <Button type="link" color="link-dark" aria-label="X">
+            <Button type="link" color="link-dark" ariaLabel="X">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -97,7 +97,7 @@ function Footer() {
             </Button>
           </li>
           <li>
-            <Button type="link" color="link-dark" aria-label="Facebook">
+            <Button type="link" color="link-dark" ariaLabel="Facebook">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -120,7 +120,7 @@ function Footer() {
             </Button>
           </li>
           <li>
-            <Button type="link" color="link-dark" aria-label="Instagram">
+            <Button type="link" color="link-dark" ariaLabel="Instagram">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -144,7 +144,7 @@ function Footer() {
             </Button>
           </li>
           <li>
-            <Button type="link" color="link-dark" aria-label="Youtube">
+            <Button type="link" color="link-dark" ariaLabel="Youtube">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
