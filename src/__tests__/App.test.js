@@ -1,28 +1,10 @@
 
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import App from '../App';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { fetchAPI, submitAPI } from '../services/BookingAPI';
 import BookingPage from '../pages/BookingPage';
 import BookingCompletePage from '../pages/BookingCompletePage';
 import BookingForm from '../components/BookingForm';
 import userEvent from '@testing-library/user-event';
-
-// test("initiate and update time options",() => {
-//   const customPath = '/reservation';
-//     Object.defineProperty(window, 'location', {
-//       value: new URL(`http://localhost${customPath}`),
-//     });
-//   render(<Router><App /></Router>)
-
-//   const timeSelect = screen.getByTestId('time')
-//   fireEvent.change(screen.getByTestId('name'), {target: {value: 'Test'}})
-//   fireEvent.change(screen.getByTestId('guests'), {target: {value: '4'}})
-//   fireEvent.change(screen.getByTestId('date'), {target: {value: '2024-01-04'}})
-//   expect(timeSelect).toHaveValue('14:00');s
-//   fireEvent.click(screen.getByText('Submit'));
-//   expect(timeSelect).toHaveValue('15:00');
-// })
 
 test("fetchAPI function", () => {
   fetchAPI('2024-01-01').then(data => {

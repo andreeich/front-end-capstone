@@ -97,7 +97,7 @@ function Header() {
       <div className="container">
         <div className="flex items-center justify-between gap-10 content h-[72px]">
           <Link to={"/"} onClick={closeOpen}>
-            <img src={logo} width="147.5" height="40" alt="" />
+            <img src={logo} width="147.5" height="40" alt="Little Lemon" />
           </Link>
           <menu className="items-center justify-center hidden gap-8 lg:flex">
             {navLinks}
@@ -111,7 +111,7 @@ function Header() {
             </Button>
           </div>
           <div className="lg:hidden" onClick={handleOpen}>
-            <Button type="link" color="link">
+            <Button type="link" color="link" aria-label="Burger menu">
               {burgerIcon}
             </Button>
           </div>

@@ -21,7 +21,6 @@ const reducer = (state, action) => {
     case "set_data": {
       return {
         ...state,
-        date: action.date,
         times: action.times,
       };
     }
@@ -37,12 +36,12 @@ const App = () => {
     date: "",
     times: [],
   });
+  const today = getDate();
 
   const setData = (date) => {
     fetchAPI(date).then((times) => {
       dispatch({
         type: "set_data",
-        date,
         times,
       });
     });
@@ -62,7 +61,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    setData(getDate());
+    setData(today);
   }, []);
 
   return (
@@ -74,7 +73,7 @@ const App = () => {
           path="/reservation"
           element={
             <BookingPage
-              date={state.date}
+              date={today}
               times={state.times}
               setData={setData}
               addReservation={addReservation}

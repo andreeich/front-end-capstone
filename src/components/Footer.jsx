@@ -7,7 +7,7 @@ function Footer() {
     <footer className="text-gray-200 bg-gray-950">
       <section className="container flex flex-col md:flex-row content gap-6xl md:gap-7xl pt-6xl md:pt-7xl pb-6xl">
         <section className="flex flex-col w-full max-w-xs gap-3xl md:gap-8">
-          <img src={logo} width={147.5} height={40} alt="" />
+          <img src={logo} width={147.5} height={40} alt="Little Lemon" />
           <p className="text-text-md/text-md">
             Welcome to our restaurant! We are happy to provide you with healthy
             and delicious dished of all kinds.
@@ -79,7 +79,7 @@ function Footer() {
       <section className="container flex flex-col justify-between md:items-center md:flex-row py-5xl md:py-6xl content gap-3xl">
         <menu className="flex items-center gap-3xl md:order-last">
           <li>
-            <Button type="link" color="link-dark">
+            <Button type="link" color="link-dark" aria-label="X">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -97,7 +97,7 @@ function Footer() {
             </Button>
           </li>
           <li>
-            <Button type="link" color="link-dark">
+            <Button type="link" color="link-dark" aria-label="Facebook">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -120,7 +120,7 @@ function Footer() {
             </Button>
           </li>
           <li>
-            <Button type="link" color="link-dark">
+            <Button type="link" color="link-dark" aria-label="Instagram">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -144,7 +144,7 @@ function Footer() {
             </Button>
           </li>
           <li>
-            <Button type="link" color="link-dark">
+            <Button type="link" color="link-dark" aria-label="Youtube">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

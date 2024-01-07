@@ -36,9 +36,11 @@ function BookingForm({ date, times, setData, addReservation, onSubmit }) {
     onSubmit: onSubmit
       ? onSubmit
       : (values, { setSubmitting, resetForm }) => {
-          addReservation(values);
-          setSubmitting(false);
-          resetForm();
+          setTimeout(() => {
+            addReservation(values);
+            setSubmitting(false);
+            resetForm();
+          }, 1000);
         },
   });
 
@@ -121,7 +123,11 @@ function BookingForm({ date, times, setData, addReservation, onSubmit }) {
           className="w-full"
           disabled={formik.isSubmitting}
         >
-          Submit
+          {formik.isSubmitting ? (
+            <span className="loading loading-spinner loading-md"></span>
+          ) : (
+            "Submit"
+          )}
         </Button>
       </div>
     </form>
